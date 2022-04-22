@@ -24,14 +24,15 @@ def main():
     csv_files_parent_dir = Path('C:/Users/sadom/Desktop/spotify_playlists_to_download').resolve()
     csv_files = searching_all_files(csv_files_parent_dir)
 
-    for path in csv_files:
-        playlist_name = path.stem
+    for csv_file in csv_files:
+        playlist_name = csv_file.stem
         create_directories(playlist_name)
         
+        print('')
         print('Downloading playlist "{}"...'.format(playlist_name))
 
         # get the names of songs from csv file
-        tracks = read_csv_file(path)
+        tracks = read_csv_file(csv_file)
         tracks_count = len(tracks)
         tracks_downloaded = 0
 

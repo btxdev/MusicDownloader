@@ -12,8 +12,9 @@ def searching_all_files(directory):
 
     return file_list
 
-def read_csv_file(path, names=[]):
-
+def read_csv_file(path, names=None):
+    if names is None:
+        names = []
     with open(path, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file)
 
@@ -28,7 +29,9 @@ def read_csv_file(path, names=[]):
 
     return names
 
-def read_csv_files_in_directory(path, names=[]):
+def read_csv_files_in_directory(path, names=None):
+    if names is None:
+        names = []
     files = searching_all_files(path)
     for file in files:
         names = read_csv_file(file, names)
