@@ -1,0 +1,30 @@
+name: MusicDownloader
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ca-certificates=2021.10.8=h5b45459_0
+  - openssl=3.0.2=h8ffe710_1
+  - pip=22.0.4=pyhd8ed1ab_0
+  - python=3.7.12=h900ac77_100_cpython
+  - python_abi=3.7=2_cp37m
+  - setuptools=62.1.0=py37h03978a9_0
+  - sqlite=3.38.2=h8ffe710_0
+  - ucrt=10.0.20348.0=h57928b3_0
+  - vc=14.2=hb210afc_6
+  - vs2015_runtime=14.29.30037=h902a5da_6
+  - wheel=0.37.1=pyhd8ed1ab_0
+  - pip:
+    - anyio==3.5.0
+    - certifi==2021.10.8
+    - charset-normalizer==2.0.12
+    - h11==0.12.0
+    - httpcore==0.14.7
+    - httpx==0.22.0
+    - idna==3.3
+    - pytube==12.0.0
+    - rfc3986==1.5.0
+    - sniffio==1.2.0
+    - typing-extensions==4.1.1
+    - youtube-search-python==1.6.4
+prefix: C:\Users\sadom\anaconda3\envs\MusicDownloader
