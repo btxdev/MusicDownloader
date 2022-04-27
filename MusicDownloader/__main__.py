@@ -7,6 +7,10 @@ from downloader import *
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
 
+# txt, csv
+FILE_TYPE = 'txt'
+SCAN_DIRECTORY = 'C:/Users/sadom/Desktop/txt_playlists_to_download/'
+
 def track_exists(playlist, track):
     path = Path(SCRIPT_DIR, '../converted_to_mp3/', playlist, track + '.mp3')
     return path.is_file()
@@ -28,18 +32,22 @@ def main():
     errors = []
 
     # read the names of playlists
-    csv_files_parent_dir = Path('C:/Users/sadom/Desktop/spotify_playlists_to_download').resolve()
-    csv_files = searching_all_files(csv_files_parent_dir)
+    files_parent_dir = Path(SCAN_DIRECTORY).resolve()
+    files = searching_all_files(files_parent_dir)
 
-    for csv_file in csv_files:
-        playlist_name = csv_file.stem
+    for file in files:
+        playlist_name = file.stem
         create_directories(playlist_name)
         
         print('')
         print('Downloading playlist "{}"...'.format(playlist_name))
 
         # get the names of songs from csv file
-        tracks = read_csv_file(csv_file)
+        tracks = []
+        if FILE_TYPE == 'txt':
+            tracks = read_txt_file(file)
+        if FILE_TYPE == 'csv':
+            tracks = read_csv_file(file)
         tracks_count = len(tracks)
         tracks_downloaded = 0
 
